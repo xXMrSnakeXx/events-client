@@ -19,10 +19,10 @@ const EventsListItem = ({ title, description, date, organizer, id }) => {
 
       <div className={css.wraplink}>
         <NavLink className={css.link} to={`/event/${id}/register`}>
-          <button>Register</button>
+          <button type="button" className={css.btn}>Register</button>
         </NavLink>
         <NavLink className={css.link} to={`/event/${id}`}>
-          <button>View</button>
+          <button type="button" className={css.btn}>View</button>
         </NavLink>
       </div>
     </div>
