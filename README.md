@@ -1,8 +1,26 @@
-# React + Vite
+# Event frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## You can run App using the command
 
-Currently, two official plugins are available:
+`npm run install`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+`npm run dev`
+
+## Use of technology
+
+1. React
+2. formik
+3. react-icons
+4. react-intersection-observer
+5. react-router-dom
+6. yup
+7. react-toastify
+8. clsx
+9. axios
+10. react-loader-spinner
+
+## In this app you can
+
+1. Get all events
+2. Add participants for event
+3. Get all participants from event
