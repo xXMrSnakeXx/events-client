@@ -1,3 +1,4 @@
+import ButtonToTop from "../components/ButtonToTop/ButtonToTop";
 import { Container } from "../components/Container/Container";
 import EventsList from "../components/EventsList/EventsList";
 import { Heading } from "../components/Heading/Heading";
@@ -23,6 +24,7 @@ const Events = () => {
             <EventsList events={events} /> {totalPages && <div ref={ref}></div>}
           </>
         )}
+        <ButtonToTop/>
       </Container>
     </Section>
   );

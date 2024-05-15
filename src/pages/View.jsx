@@ -1,3 +1,4 @@
+import ButtonToTop from "../components/ButtonToTop/ButtonToTop";
 import { Container } from "../components/Container/Container";
 import GoBackBtn from "../components/GoBackBtn/GoBackBtn";
 import { Heading } from "../components/Heading/Heading";
@@ -32,6 +33,7 @@ const View = () => {
             )}
           </>
         )}
+         <ButtonToTop/>
       </Container>
     </Section>
   );
