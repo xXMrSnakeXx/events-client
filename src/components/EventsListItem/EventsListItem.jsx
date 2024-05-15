@@ -18,16 +18,10 @@ const EventsListItem = ({ title, description, date, organizer, id }) => {
       </p>
 
       <div className={css.wraplink}>
-        <NavLink
-          className={({ isActive }) => (isActive ? css.active : css.link)}
-          to={`/event/${id}/register`}
-        >
+        <NavLink className={css.link} to={`/event/${id}/register`}>
           <button>Register</button>
         </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? css.active : css.link)}
-          to={`/event/${id}`}
-        >
+        <NavLink className={css.link} to={`/event/${id}`}>
           <button>View</button>
         </NavLink>
       </div>

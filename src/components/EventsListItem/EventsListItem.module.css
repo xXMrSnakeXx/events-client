@@ -29,9 +29,5 @@
 .link {
   color: var(--color-accent);
   font-size: var(--font-medium);
-  text-transform: uppercase;
-  transition-property: color, background-color, transform;
-  transition-duration: 0.2s;
-  transition-timing-function: var(--animation-cubicBezier);
   transform: scale(0.9);
 }
