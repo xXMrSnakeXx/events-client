@@ -18,6 +18,7 @@
 8. clsx
 9. axios
 10. react-loader-spinner
+11. fuse.js
 
 ## In this app you can
 

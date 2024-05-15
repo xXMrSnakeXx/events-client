@@ -1,5 +1,6 @@
 import ButtonToTop from "../components/ButtonToTop/ButtonToTop";
 import { Container } from "../components/Container/Container";
+import Filter from "../components/Filter/Filter";
 import GoBackBtn from "../components/GoBackBtn/GoBackBtn";
 import { Heading } from "../components/Heading/Heading";
 import Loader from "../components/Loader/Loader";
@@ -8,7 +9,7 @@ import UsersList from "../components/UsersList/UsersList";
 import useFetchUsers from "../hooks/useFetchUsers";
 
 const View = () => {
-  const { users, isLoading, error } = useFetchUsers();
+  const { users, isLoading, error , onChange} = useFetchUsers();
   return (
     <Section>
       <Container>
@@ -20,7 +21,7 @@ const View = () => {
             title="Something went wrong...😐 Check the data validity and try again!"
           />
         )}
-
+        <Filter onChange={onChange}/>
         {users !== null && (
           <>
             {users.length > 0 ? (

@@ -4,7 +4,6 @@ import { FaArrowUp } from "react-icons/fa";
 
 const ButtonToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
-  console.log(isVisible);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
