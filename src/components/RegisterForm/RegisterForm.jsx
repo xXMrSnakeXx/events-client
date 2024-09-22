@@ -6,10 +6,12 @@ import { registerUser } from "../../sevices/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import GoBackBtn from "../GoBackBtn/GoBackBtn";
+import CustomDatePicker from "../CustomDatePicker/CustomDatePicker";
+
 const initialValues = {
   fullname: "",
   email: "",
-  birthday: "",
+  birthday: null,
   source: "",
 };
 const validationSchema = Yup.object().shape({
@@ -19,7 +21,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .matches(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/)
     .required("Required"),
-  birthday: Yup.string().required("Required"),
+  birthday: Yup.date().required("Required"),
   source: Yup.string().required("Required"),
 });
 
@@ -47,6 +49,7 @@ const RegisterForm = () => {
     resetForm();
     navigate("/");
   };
+
   return (
     <>
       <GoBackBtn />
@@ -55,83 +58,85 @@ const RegisterForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form}>
-          <label htmlFor={nameId} className={css.label}>
-            Full name
-          </label>
-          <Field
-            id={nameId}
-            name="fullname"
-            placeholder="Jane Doe"
-            className={css.input}
-          />
-          <ErrorMessage name="fullname" component="p" className={css.error} />
-          <label htmlFor={emailId} className={css.label}>
-            Email
-          </label>
-          <Field
-            id={emailId}
-            name="email"
-            placeholder="jane@acme.com"
-            type="email"
-            className={css.input}
-          />
-          <ErrorMessage name="email" component="p" className={css.error} />
-          <label htmlFor={birthdayId} className={css.label}>
-            Date of birth
-          </label>
-          <Field
-            id={birthdayId}
-            name="birthday"
-            placeholder="15.05.2024"
-            className={css.input}
-          />
-          <ErrorMessage name="birthday" component="p" className={css.error} />
-
-          <label className={css.label}>
-            How did you hear about this event?
-          </label>
-          <div className={css.radiowrap}>
-            <label htmlFor={socialId} className={css.radiolabel}>
-              Social Media
-            </label>
-
-            <Field
-              id={socialId}
-              name="source"
-              type="radio"
-              value="social-media"
-              className={css.radioinput}
-            />
-
-            <label htmlFor={friendsId} className={css.radiolabel}>
-              Friends
+        {({ setFieldValue, values }) => (
+          <Form className={css.form}>
+            <label htmlFor={nameId} className={css.label}>
+              Full name
             </label>
             <Field
-              id={friendsId}
-              name="source"
-              type="radio"
-              value="friends"
-              className={css.radioinput}
+              id={nameId}
+              name="fullname"
+              placeholder="Jane Doe"
+              className={css.input}
             />
-
-            <label htmlFor={myselfId} className={css.radiolabel}>
-              Found myself
+            <ErrorMessage name="fullname" component="p" className={css.error} />
+            <label htmlFor={emailId} className={css.label}>
+              Email
             </label>
             <Field
-              id={myselfId}
-              name="source"
-              type="radio"
-              value="found myself"
-              className={css.radioinput}
+              id={emailId}
+              name="email"
+              placeholder="jane@acme.com"
+              type="email"
+              className={css.input}
             />
-            <ErrorMessage name="source" component="p" className={css.error} />
-          </div>
+            <ErrorMessage name="email" component="p" className={css.error} />
+            <label htmlFor={birthdayId} className={css.label}>
+              Date of birth
+            </label>
+            <CustomDatePicker
+              values={values}
+              setFieldValue={setFieldValue}
+              cssInput={css.input}
+            />
 
-          <button type="submit" className={css.btn}>
-            Submit
-          </button>
-        </Form>
+            <ErrorMessage name="birthday" component="p" className={css.error} />
+
+            <label className={css.label}>
+              How did you hear about this event?
+            </label>
+            <div className={css.radiowrap}>
+              <label htmlFor={socialId} className={css.radiolabel}>
+                Social Media
+              </label>
+
+              <Field
+                id={socialId}
+                name="source"
+                type="radio"
+                value="social-media"
+                className={css.radioinput}
+              />
+
+              <label htmlFor={friendsId} className={css.radiolabel}>
+                Friends
+              </label>
+              <Field
+                id={friendsId}
+                name="source"
+                type="radio"
+                value="friends"
+                className={css.radioinput}
+              />
+
+              <label htmlFor={myselfId} className={css.radiolabel}>
+                Found myself
+              </label>
+              <Field
+                id={myselfId}
+                name="source"
+                type="radio"
+                value="found myself"
+                className={css.radioinput}
+              />
+              <ErrorMessage name="source" component="p" className={css.error} />
+            </div>
+
+            <button type="submit" className={css.btn}>
+              Submit
+            </button>
+          </Form>
+        )}
       </Formik>
     </>
   );

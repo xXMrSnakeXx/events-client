@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  position: relative;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 18px;
+  border: 1px solid var(--color-dark);
+}
+.btnLeft {
+  composes: btn;
+  margin-right: 5px;
+}
+.btnRight {
+  composes: btn;
+  margin-left: 5px;
+}
+.icon {
+  font-size: 25px;
+  color: var(--color-light);
+  position: relative;
+  top: 0;
+  right: 10px;
+}
