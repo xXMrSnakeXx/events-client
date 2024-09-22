@@ -101,6 +101,8 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
       icon={<IoCalendarNumberOutline className={css.icon}/>}
       placeholderText="month / day / year"
       selected={values.birthday}
+      minDate={minDate}
+      maxDate={new Date()}
       className={cssInput}
       onChange={(date) => debounceChange(date, setFieldValue)}
     />
