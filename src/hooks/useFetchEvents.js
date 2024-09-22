@@ -45,7 +45,7 @@ const useFetchEvents = () => {
       return;
     } else {
       const sortedEvents = [...events].sort((el1, el2) => {
-        switch (select) {
+        switch (select?.value) {
           case "title":
             return el1.title.localeCompare(el2.title);
           case "date":

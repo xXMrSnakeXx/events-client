@@ -9,7 +9,7 @@ import { useSelect } from "../../hooks/useSelect";
 export const Header = () => {
   const { setSelect } = useSelect();
   const handleChange = (selectOption) => {
-    setSelect(selectOption?.value);
+    setSelect(selectOption);
   };
   const { pathname } = useLocation();
   return (
