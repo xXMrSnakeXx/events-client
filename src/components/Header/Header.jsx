@@ -12,7 +12,6 @@ export const Header = () => {
     setSelect(selectOption?.value);
   };
   const { pathname } = useLocation();
-  console.log(pathname);
   return (
     <>
       <header className={css.header}>

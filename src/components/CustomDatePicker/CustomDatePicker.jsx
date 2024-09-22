@@ -12,7 +12,7 @@ import useDebounce from "../../hooks/useDebounce";
 const minDate = addYears(new Date(), -100);
 const minAgeDate = addYears(new Date(), -18); 
 
-const years = range(1924, getYear(new Date()) + 1, 1);
+const years = range(1924, getYear(minAgeDate), 1);
 const months = [
   "January",
   "February",
@@ -100,13 +100,14 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
       )}
       showIcon
       icon={<IoCalendarNumberOutline className={css.icon}/>}
-      placeholderText="month / day / year "
+      placeholderText="month / day / year Must be 18+"
       selected={values.birthday}
       minDate={minDate}
-      maxDate={new Date()}
+      maxDate={minAgeDate}
       className={cssInput}
       onChange={(date) => debounceChange(date, setFieldValue)}
       onKeyDown={(e)=>e.preventDefault()}
+      filterDate={(date) => date <= minAgeDate}
     />
   );
 };
