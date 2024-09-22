@@ -10,6 +10,7 @@ import { IoCalendarNumberOutline } from "react-icons/io5";
 import useDebounce from "../../hooks/useDebounce";
 
 const minDate = addYears(new Date(), -100);
+const minAgeDate = addYears(new Date(), -18); 
 
 const years = range(1924, getYear(new Date()) + 1, 1);
 const months = [
@@ -33,12 +34,12 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
       toast.error("Please enter a valid date.");
       return;
     }
-    if (date > new Date()) {
-      toast.error("Date cannot be in the future.");
-      return;
-    }
     if (date < minDate) {
       toast.error("Date cannot be more than 100 years ago.");
+      return;
+    }
+    if (date > minAgeDate) {
+      toast.error("You must be at least 18 years old.");
       return;
     }
     setFieldValue("birthday", date);
@@ -99,12 +100,13 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
       )}
       showIcon
       icon={<IoCalendarNumberOutline className={css.icon}/>}
-      placeholderText="month / day / year"
+      placeholderText="month / day / year "
       selected={values.birthday}
       minDate={minDate}
       maxDate={new Date()}
       className={cssInput}
       onChange={(date) => debounceChange(date, setFieldValue)}
+      onKeyDown={(e)=>e.preventDefault()}
     />
   );
 };
