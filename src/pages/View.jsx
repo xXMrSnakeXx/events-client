@@ -1,4 +1,5 @@
 import ButtonToTop from "../components/ButtonToTop/ButtonToTop";
+import ChartBar from "../components/ChartBar/ChartBar";
 import { Container } from "../components/Container/Container";
 import Filter from "../components/Filter/Filter";
 import GoBackBtn from "../components/GoBackBtn/GoBackBtn";
@@ -9,7 +10,7 @@ import UsersList from "../components/UsersList/UsersList";
 import useFetchUsers from "../hooks/useFetchUsers";
 
 const View = () => {
-  const { users, isLoading, error , onChange} = useFetchUsers();
+  const { users, isLoading, error, onChange } = useFetchUsers();
   return (
     <Section>
       <Container>
@@ -21,11 +22,14 @@ const View = () => {
             title="Something went wrong...😐 Check the data validity and try again!"
           />
         )}
-        <Filter onChange={onChange}/>
+        <Filter onChange={onChange} />
         {users !== null && (
           <>
             {users.length > 0 ? (
-              <UsersList users={users} />
+              <>
+                <UsersList users={users} />
+                <ChartBar users={users} />
+              </>
             ) : (
               <Heading
                 info
@@ -34,7 +38,7 @@ const View = () => {
             )}
           </>
         )}
-         <ButtonToTop/>
+        <ButtonToTop />
       </Container>
     </Section>
   );

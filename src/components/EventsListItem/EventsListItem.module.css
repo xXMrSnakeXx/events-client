@@ -8,13 +8,13 @@
 .date {
   color: var(--color-white);
 }
-.participants{
+.participants {
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--color-white);
   position: absolute;
-  top:10px;
+  top: 10px;
   right: 10px;
 }
 .title {

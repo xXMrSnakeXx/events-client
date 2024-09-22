@@ -8,7 +8,6 @@ import useFetchEvents from "../hooks/useFetchEvents";
 
 const Events = () => {
   const { events, isLoading, error, ref, totalPages } = useFetchEvents();
-
   return (
     <Section>
       <Container>

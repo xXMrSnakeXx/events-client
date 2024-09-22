@@ -21,10 +21,9 @@ const useFetchEvents = () => {
       try {
         const data = await fetchEvents(page);
         setTotalPages(page < Math.ceil(data.totalEvents / 12));
-        if (page === 1) {
-          setInitialEvents(data.events);
-        }
         setEvents((prevEvents) => [...prevEvents, ...data.events]);
+
+        setInitialEvents((prev) => [...prev, ...data.events]);
       } catch (error) {
         setError(error);
       } finally {
@@ -43,6 +42,7 @@ const useFetchEvents = () => {
   useEffect(() => {
     if (!select) {
       setEvents(initialEvents);
+      return;
     } else {
       const sortedEvents = [...events].sort((el1, el2) => {
         switch (select) {
@@ -61,7 +61,7 @@ const useFetchEvents = () => {
         setEvents(sortedEvents);
       }
     }
-  }, [select, initialEvents, events]);
+  }, [select, events, initialEvents]);
 
   return { events, isLoading, error, ref, totalPages };
 };
