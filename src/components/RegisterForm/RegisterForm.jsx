@@ -34,7 +34,7 @@ const RegisterForm = () => {
   const myselfId = useId();
   const { id } = useParams();
   const navigate = useNavigate();
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
     try {
       const data = await registerUser(id, values);
       if (data?.fullname) {
@@ -44,10 +44,11 @@ const RegisterForm = () => {
       }
     } catch (error) {
       toast.error("Something went wrong.... Try again later");
+    } finally {
+      resetForm();
+      setSubmitting(false);
+      navigate("/");
     }
-
-    resetForm();
-    navigate("/");
   };
 
   return (
@@ -58,7 +59,7 @@ const RegisterForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, values }) => (
+        {({ setFieldValue, values, isSubmitting }) => (
           <Form className={css.form}>
             <label htmlFor={nameId} className={css.label}>
               Full name
@@ -132,8 +133,8 @@ const RegisterForm = () => {
               <ErrorMessage name="source" component="p" className={css.error} />
             </div>
 
-            <button type="submit" className={css.btn}>
-              Submit
+            <button type="submit" className={css.btn} disabled={isSubmitting}>
+              {isSubmitting ? "Loading.." : "Submit"}
             </button>
           </Form>
         )}
