@@ -8,6 +8,7 @@ import useFetchEvents from "../hooks/useFetchEvents";
 
 const Events = () => {
   const { events, isLoading, error, ref, totalPages } = useFetchEvents();
+
   return (
     <Section>
       <Container>
@@ -24,7 +25,7 @@ const Events = () => {
             <EventsList events={events} /> {totalPages && <div ref={ref}></div>}
           </>
         )}
-        <ButtonToTop/>
+        <ButtonToTop />
       </Container>
     </Section>
   );

@@ -3,9 +3,19 @@
   flex-direction: column;
   justify-content: center;
   padding: 10px;
+  position: relative;
 }
 .date {
   color: var(--color-white);
+}
+.participants{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  position: absolute;
+  top:10px;
+  right: 10px;
 }
 .title {
   font-size: 20px;

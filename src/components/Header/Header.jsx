@@ -3,8 +3,15 @@ import { NavLink, Outlet } from "react-router-dom";
 import { SiEventstore } from "react-icons/si";
 import css from "./Header.module.css";
 import Loader from "../Loader/Loader";
+import Sorting from "../Sorting/Sorting";
+import { useSelect } from "../../hooks/useSelect";
 
 export const Header = () => {
+const {setSelect} = useSelect()
+  const handleChange = selectOption =>{
+    setSelect(selectOption?.value)
+  }
+ 
   return (
     <>
       <header className={css.header}>
@@ -25,6 +32,7 @@ export const Header = () => {
             </ul>
           </nav>
         </div>
+        <Sorting handleChange={handleChange}/>
       </header>
       <Suspense fallback={<Loader />}>
         <Outlet />
