@@ -1,4 +1,4 @@
-# Event frontend
+# Event frontend level middle +
 
 ## You can run App using the command
 
@@ -19,6 +19,9 @@
 9. axios
 10. react-loader-spinner
 11. fuse.js
+12. chart.js
+13. react-select
+14. react-datepicker
 
 ## In this app you can
 
