@@ -1,5 +1,3 @@
-import css from "./Section.module.css";
-
 export const Section = ({ children }) => {
-  return <section className={css.section}>{children}</section>;
+  return <section className='py-20 px-0'>{children}</section>;
 };

@@ -1,5 +1,5 @@
-import css from "./Grid.module.css";
-
-export const Grid = ({ children }) => {
-  return <ul className={css.list}>{children}</ul>;
+export const Grid = ({children}) => {
+	return <ul className='grid
+  grid-cols-[repeat(auto-fill,minmax(275px,1fr))]
+  gap-5'>{children}</ul>;
 };

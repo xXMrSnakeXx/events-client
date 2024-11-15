@@ -1,12 +1,10 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { addYears, isValid } from "date-fns";
-import { getYear, getMonth } from "date-fns";
-import { toast } from "react-toastify";
-import { range } from "../../helpers/range";
-import css from "./CustomDatePicker.module.css";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { IoCalendarNumberOutline } from "react-icons/io5";
+import {addYears, getMonth, getYear, isValid} from "date-fns";
+import {toast} from "react-toastify";
+import {range} from "../../helpers/range";
+import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
+import {IoCalendarNumberOutline} from "react-icons/io5";
 import useDebounce from "../../hooks/useDebounce";
 
 const minDate = addYears(new Date(), -100);
@@ -57,9 +55,11 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
         prevMonthButtonDisabled,
         nextMonthButtonDisabled,
       }) => (
-        <div className={css.wrapper}>
+        <div className='flex justify-center m-2.5 relative'>
           <button
-            className={css.btnLeft}
+            className='flex justify-center items-center
+            w-[15px] h-[18px] border border-solid
+            border-dark mr-[5px]'
             onClick={decreaseMonth}
             disabled={prevMonthButtonDisabled}
           >
@@ -90,7 +90,9 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
           </select>
 
           <button
-            className={css.btnRight}
+              className='flex justify-center items-center
+            w-[15px] h-[18px] border border-solid
+            border-dark ml-[5px]'
             onClick={increaseMonth}
             disabled={nextMonthButtonDisabled}
           >
@@ -99,7 +101,7 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
         </div>
       )}
       showIcon
-      icon={<IoCalendarNumberOutline className={css.icon}/>}
+      icon={<IoCalendarNumberOutline className='text-[25px] text-light relative bottom-2 right-2.5'/>}
       placeholderText="month / day / year Must be 18+"
       selected={values.birthday}
       minDate={minDate}
