@@ -1,7 +1,6 @@
-export const GridItem = ({ children }) => {
-  return <li className='
+export const GridItem = ({ children, view }) => {
+  return <li className={`${view ? 'h-max' : 'min-h-[375px]'}
   max-w-[297px]
-  min-h-[375px]
   flex
   flex-col
   items-center
@@ -19,5 +18,5 @@ export const GridItem = ({ children }) => {
   hover:shadow-custom-primary
   focus:scale-105
   focus:shadow-custom-primary
-'>{children}</li>;
+`}>{children}</li>;
 };

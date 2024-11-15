@@ -13,6 +13,7 @@ export default {
 				white: '#ffffff',
 				primary: '#22a6b3',
 				error: '#ed2a2a',
+				gray: '#41707c',
 			},
 			backgroundImage: {
 				'main-background': 'linear-gradient(to top, #0f2027, #203a43, #2c5364)',

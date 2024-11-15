@@ -9,7 +9,7 @@ const UsersList = ({ users }) => {
       <Heading info title="Participants of this event" bottom />
       <Grid>
         {users.map(({ _id: id, fullname, email }) => (
-          <GridItem key={id}>
+          <GridItem key={id} view>
             <UsersListItem fullname={fullname} email={email} />
           </GridItem>
         ))}
