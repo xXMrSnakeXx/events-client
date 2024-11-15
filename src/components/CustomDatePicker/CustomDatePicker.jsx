@@ -1,14 +1,14 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {addYears, getMonth, getYear, isValid} from "date-fns";
-import {toast} from "react-toastify";
-import {range} from "../../helpers/range";
-import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
-import {IoCalendarNumberOutline} from "react-icons/io5";
+import { addYears, getMonth, getYear, isValid } from "date-fns";
+import { toast } from "react-toastify";
+import { range } from "../../helpers/range";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoCalendarNumberOutline } from "react-icons/io5";
 import useDebounce from "../../hooks/useDebounce";
 
 const minDate = addYears(new Date(), -100);
-const minAgeDate = addYears(new Date(), -18); 
+const minAgeDate = addYears(new Date(), -18);
 
 const years = range(1924, getYear(minAgeDate), 1);
 const months = [
@@ -55,11 +55,11 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
         prevMonthButtonDisabled,
         nextMonthButtonDisabled,
       }) => (
-        <div className='flex justify-center m-2.5 relative'>
+        <div className="flex justify-center m-2.5 relative">
           <button
-            className='flex justify-center items-center
+            className="flex justify-center items-center
             w-[15px] h-[18px] border border-solid
-            border-dark mr-[5px]'
+            border-dark mr-[5px]"
             onClick={decreaseMonth}
             disabled={prevMonthButtonDisabled}
           >
@@ -90,9 +90,9 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
           </select>
 
           <button
-              className='flex justify-center items-center
+            className="flex justify-center items-center
             w-[15px] h-[18px] border border-solid
-            border-dark ml-[5px]'
+            border-dark ml-[5px]"
             onClick={increaseMonth}
             disabled={nextMonthButtonDisabled}
           >
@@ -101,14 +101,16 @@ const CustomDatePicker = ({ values, setFieldValue, cssInput }) => {
         </div>
       )}
       showIcon
-      icon={<IoCalendarNumberOutline className='text-[25px] text-light relative bottom-2 right-2.5'/>}
+      icon={
+        <IoCalendarNumberOutline className="text-[25px] text-light relative bottom-2 right-2.5" />
+      }
       placeholderText="month / day / year Must be 18+"
       selected={values.birthday}
       minDate={minDate}
       maxDate={minAgeDate}
       className={cssInput}
       onChange={(date) => debounceChange(date, setFieldValue)}
-      onKeyDown={(e)=>e.preventDefault()}
+      onKeyDown={(e) => e.preventDefault()}
       filterDate={(date) => date <= minAgeDate}
     />
   );

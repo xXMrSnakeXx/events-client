@@ -1,9 +1,11 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const GoBackBtn = () => {
-	return (
-			<Link to="/">
-				<button type="button" className='
+  return (
+    <Link to="/">
+      <button
+        type="button"
+        className="
       flex
       items-center
       justify-center
@@ -22,11 +24,12 @@ const GoBackBtn = () => {
       transition-all
       ease-in-out
       duration-500
-			'>
-					Go Back
-				</button>
-			</Link>
-	);
+			"
+      >
+        Go Back
+      </button>
+    </Link>
+  );
 };
 
 export default GoBackBtn;

@@ -1,6 +1,6 @@
 import Select from "react-select";
 import "./Sorting.css";
-import {useSelect} from "../../hooks/useSelect";
+import { useSelect } from "../../hooks/useSelect";
 
 const options = [
   { value: "title", label: "Title" },
@@ -12,7 +12,7 @@ const Sorting = ({ handleChange }) => {
   const { select } = useSelect();
   return (
     <Select
-      className='mr-[250px]'
+      className="mr-[250px]"
       classNamePrefix="react-select"
       isClearable={true}
       name="select"

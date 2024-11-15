@@ -1,12 +1,12 @@
-const Filter = ({onChange}) => {
-	return (
-			<input
-					type="text"
-					name="filter"
-					onChange={onChange}
-					placeholder="Filter..."
-					className='
-					 w-[450px] h-[30px] mb-3
+const Filter = ({ onChange }) => {
+  return (
+    <input
+      type="text"
+      name="filter"
+      onChange={onChange}
+      placeholder="Filter..."
+      className="
+		   w-[450px] h-[30px] mb-3
            bg-transparent rounded-xl p-2.5
            border
            border-solid
@@ -26,8 +26,9 @@ const Filter = ({onChange}) => {
            duration-500
            placeholder-light
            placeholder-opacity-30
-			'/>
-	)
-}
+			"
+    />
+  );
+};
 
-export default Filter
+export default Filter;
